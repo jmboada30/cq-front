@@ -1,0 +1,65 @@
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar,
+td::-webkit-scrollbar,
+.q-card::-webkit-scrollbar {
+  height: 6px;
+}
+
+/* Estilos barra (thumb) de scroll */
+body::-webkit-scrollbar-thumb,
+.scroll::-webkit-scrollbar-thumb,
+td::-webkit-scrollbar-thumb,
+.q-card::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:active,
+.scroll::-webkit-scrollbar-thumb:active,
+td::-webkit-scrollbar-thumb:active,
+.q-card::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+body::-webkit-scrollbar-thumb:hover,
+.scroll::-webkit-scrollbar-thumb:hover,
+td::-webkit-scrollbar-thumb:hover,
+.q-card::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+
+body::-webkit-scrollbar-track,
+.scroll::-webkit-scrollbar-track,
+td::-webkit-scrollbar-track,
+.q-card::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+body.body--light::-webkit-scrollbar-track,
+body.body--light .scroll::-webkit-scrollbar-track,
+body.body--light td::-webkit-scrollbar-track,
+body.body--light .q-card::-webkit-scrollbar-track {
+  background: #fbfbfb;
+}
+body.body--dark::-webkit-scrollbar-track,
+body.body--dark .scroll::-webkit-scrollbar-track,
+body.body--dark td::-webkit-scrollbar-track,
+body.body--dark .q-card::-webkit-scrollbar-track {
+  background: $dark;
+}
+
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active,
+.scroll::-webkit-scrollbar-track:hover,
+.scroll::-webkit-scrollbar-track:active,
+td::-webkit-scrollbar-track:hover,
+td::-webkit-scrollbar-track:active,
+.q-card::-webkit-scrollbar-track:hover,
+.q-card::-webkit-scrollbar-track:active {
+  background: #eaecfd;
+}

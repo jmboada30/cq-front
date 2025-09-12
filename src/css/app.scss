@@ -1,0 +1,375 @@
+@import 'customScroll';
+
+@import './layouts/sideBar';
+
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts/Poppins/Poppins-Regular.ttf);
+  font-weight: normal, 300, 400;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts/Poppins/Poppins-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts/Poppins/Poppins-Bold.ttf);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(./fonts/Poppins/Poppins-Light.ttf);
+  font-weight: 200;
+}
+
+body {
+  min-width: 100px;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  font-size: 18px;
+  /*   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; */
+}
+
+// estilo hecho para modificar la altura interna del multiselect
+.q-field--auto-height.q-field--dense.q-field--labeled .q-field__native {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  max-height: 3.5rem !important;
+  padding-right: 15px;
+}
+
+body.body--light {
+  background: #f9f9f9;
+}
+
+body.body--dark {
+  --q-primary: #8aa9e9;
+  --q-negative: #da6673;
+
+  color: rgb(255, 255, 255, 0.87) !important;
+
+  .q-layout__shadow:after {
+    box-shadow: 0 4px 5px rgb(0 0 0 / 14%);
+  }
+
+  .bg-red {
+    background: #f88e86 !important;
+  }
+
+  .bg-grey-3,
+  .bg-white {
+    background: rgb(238 238 238 / 10%) !important;
+  }
+  .q-date--dark {
+    box-shadow: 0 1px 16px rgba(18, 18, 18, 0.5);
+  }
+
+  .q-icon.text-white,
+  .q-item--active.bg-primary.text-white,
+  .q-item--active.bg-primary.text-white .q-item__label--caption {
+    color: var(--q-dark) !important;
+  }
+
+  .q-card.q-card--dark {
+    box-shadow: none;
+    &.bg-white {
+      background: var(--q-dark) !important;
+    }
+    &.card-module {
+      .q-icon.text-white {
+        color: var(--q-dark) !important;
+      }
+    }
+  }
+
+  .btn-cancel.q-btn--outline::before {
+    border: 1px solid rgb(255 255 255 / 12%);
+  }
+
+  .q-btn.text-white {
+    color: var(--q-dark-page) !important;
+  }
+
+  .text-dark,
+  .q-dark {
+    color: rgb(255, 255, 255, 0.87) !important;
+  }
+  .apexcharts-tooltip {
+    color: $dark !important;
+  }
+  .apexcharts-text {
+    fill: white !important;
+  }
+  .bg-light-primary {
+    background: #1d1d1d !important;
+  }
+  .text-primary {
+    color: #f9f9f9 !important;
+  }
+}
+
+.bg-light {
+  background: $light;
+}
+
+.bg-light-primary {
+  background: #e6ecfa !important;
+}
+
+.q-icon {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 48;
+}
+
+.shadow-card {
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.05);
+}
+
+.menuList {
+  .q-item {
+    border-radius: $generic-border-radius;
+    margin: 4px 0;
+  }
+}
+
+.q-badge {
+  border-radius: 4px;
+}
+
+.scroller-floating .q-page-sticky {
+  z-index: 1;
+}
+
+.Section-customclass {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exclamationDiv {
+  height: fit-content;
+  width: fit-content;
+  border-radius: 100%;
+  padding: 1.25rem;
+}
+
+#Round__Div {
+  height: fit-content;
+  width: fit-content;
+  border-radius: 100%;
+}
+
+.invertible-image {
+  filter: invert(1);
+}
+.subtitleStyle {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.q-card__actions .q-btn--rectangle {
+  padding: 0px 16px;
+}
+
+.btn-cancel.q-btn--outline::before {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.q-loading__backdrop {
+  opacity: 0.8;
+}
+
+.scrollable-list {
+  max-height: 270px;
+  overflow-y: auto;
+}
+
+.card-module--icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+}
+
+.time-picker {
+  width: fit-content;
+  font-size: 1.8em;
+  border-radius: 8px;
+  flex-wrap: nowrap;
+}
+
+.time-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+  height: 150px;
+  width: auto;
+  user-select: none;
+  position: relative;
+}
+
+.time-column div {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.time-column div.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.separator {
+  padding: 0 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.spanDay {
+  opacity: 0.3;
+}
+
+.cardOpacity {
+  opacity: 0.6;
+  transition: opacity 0.6s;
+}
+
+.cardOpacityRipple {
+  opacity: 0.2;
+  transition: opacity 1.5s;
+}
+
+.circle {
+  width: 0.18rem;
+  height: 0.18rem;
+  border-radius: 100%;
+}
+
+.fixed-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.gapForm {
+  gap: 1rem;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 50%; /* Move the icon down by 50% of the parent's height */
+  transform: translateY(-50%); /* Adjust to center vertically */
+  right: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (max-height: 630px) {
+  .gapForm {
+    margin-bottom: 5rem;
+  }
+}
+
+.border {
+  border: 2.5px solid #bdbdbd;
+}
+
+.cardHours {
+  height: 182px;
+  max-height: 182px;
+  overflow-y: auto;
+}
+
+.cardContact {
+  height: 95px;
+  max-height: 95px;
+  overflow-y: auto;
+}
+
+.q-tabs-custom {
+  border-radius: 0.5rem;
+}
+
+.badgeCustom {
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: 1.95rem;
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: inherit !important;
+}
+
+.divCustom {
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 1.5rem;
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0.5rem !important;
+}
+
+.q-badge--single-line {
+  white-space: inherit;
+}
+
+.footerB-light {
+  background: #f9f9f9;
+}
+.footerB-dark {
+  background: var(--q-dark-page);
+}
+
+.customDialog .q-card__actions {
+  justify-content: center !important;
+}
+
+.text-weight-extra-thin {
+  font-weight: 200;
+}
+
+.text-xl {
+  font-size: 1.125rem;
+}
+
+.text-2xl {
+  font-size: 1.25rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+}
+
+.line-through {
+  text-decoration-line: line-through;
+}
