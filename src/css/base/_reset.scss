@@ -4,3 +4,8 @@ html {
 body.body--light {
   background: $background-light;
 }
+
+body.body--dark {
+  background: $dark-page;
+  color: rgba(255, 255, 255, 0.87);
+}

@@ -6,7 +6,7 @@ export const useUiStore = defineStore('ui', () => {
   // Estado reactivo
   const isMenuOpen = ref(false);
   const isMiniState = ref(true);
-  const isDarkMode = ref(false);
+  const isDarkMode = ref(true);
   const isSubItemOpen = ref(false);
   const currentTitle = ref('');
 

@@ -5,7 +5,7 @@ export const useMenuUiStore = defineStore('menuUi', {
   state: () => ({
     isMenuOpen: false,
     isMiniState: true,
-    isDarkMode: false,
+    isDarkMode: true,
     isSubItemOpen: false,
     currentTitle: '',
     drawer: false,
