@@ -13,7 +13,7 @@ const modalPassword = async () => {
 <template>
   <q-img
     @dblclick="modalPassword"
-    :src="`images/favicon-128x128.png`"
+    :src="`images/svg/isologo-color.svg`"
     style="max-width: 220px"
     no-spinner
     fetchpriority="high"
