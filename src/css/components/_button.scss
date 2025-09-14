@@ -1,3 +1,13 @@
 .q-btn.q-btn--rectangle {
-  border-radius: 50%;
+  border-radius: 100px !important;
+  font-family: 'Space Mono';
+  font-size: 1.6rem;
+}
+
+.q-btn.bg-primary {
+  color: $secondary !important;
+}
+
+.q-btn.bg-secondary {
+  color: #ffffff !important;
 }
