@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-import { version } from '../../../../package.json';
-import LogoImage from '../../shared/components/BlueLogoImage.vue';
-import useValidators from '../../shared/composables/useValidators';
-import useAuth from '../composables/useAuth';
-import useUi from 'src/modules/start/composables/useUi';
+import { onMounted, ref } from "vue";
+import { version } from "../../../../package.json";
+import LogoImage from "../../shared/components/BlueLogoImage.vue";
+import useValidators from "../../shared/composables/useValidators";
+import useAuth from "../composables/useAuth";
+import useUi from "src/modules/start/composables/useUi";
 
 const isPwd = ref(true);
 const { loginForm, login, getLoginFormFromLocalStore } = useAuth();
@@ -69,6 +69,19 @@ onMounted(() => {
               <label class="column">
                 <q-btn label="Ingresar" type="submit" color="primary" />
               </label>
+
+              <section class="text-center q-mt-lg">
+                <div class="divisor">
+                  <span>O inicia sesión con</span>
+                </div>
+                <q-btn
+                  flat
+                  round
+                  color="white"
+                  icon="img:icons/discord-icon.svg"
+                  class="bg-white"
+                />
+              </section>
             </q-form>
           </q-card-section>
         </q-card>
@@ -86,5 +99,25 @@ onMounted(() => {
 }
 #mainStyle {
   max-width: 400px;
+}
+
+.divisor {
+  display: flex;
+  align-items: center;
+  color: #a0a0a0;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divisor::before,
+.divisor::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.divisor span {
+  padding: 0 15px;
 }
 </style>

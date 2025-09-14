@@ -51,6 +51,10 @@ p,
   line-height: 2.4rem;
 }
 
+.text-space-mono {
+  font-family: 'Space Mono', monospace;
+}
+
 .text-body2 {
   font-size: 1.4rem;
   line-height: 2.2rem;
@@ -87,10 +91,6 @@ h2 {
 
 .text-weight-semi-bold {
   font-weight: 600;
-}
-
-.text-primary {
-  color: #ffffff !important;
 }
 
 .text-secondary {
