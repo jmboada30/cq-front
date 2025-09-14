@@ -3,16 +3,16 @@ import { ref, onBeforeUnmount, nextTick } from 'vue';
 import { useRouter } from 'vue-router';
 import { Loading } from 'quasar';
 import useUi from '../composables/useUi';
-
-import useAuth from 'src/modules/auth/composables/useAuth';
+// import useAuth from 'src/modules/auth/composables/useAuth';
 import MenuLg from 'src/modules/settings/menuItems/components/MenuLg.vue';
-import { AuthRoutes } from 'src/modules/auth/interfaces/auth-routes';
+// import { AuthRoutes } from 'src/modules/auth/interfaces/auth-routes';
 import { useMenuUi } from 'src/modules/settings/menuItems/composables/usMenuUi';
 
 const { isDarkMode } = useUi();
 const { toggleDrawer } = useMenuUi();
 const router = useRouter();
-const { user, logout } = useAuth();
+// const { user, logout } = useAuth();
+const search = ref(null);
 
 Loading.hide('auth-login');
 const isVisible = ref(false);
@@ -40,16 +40,16 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-const redirect = (route: string) => {
-  router.push({
-    name: route,
-  });
-};
+// const redirect = (route: string) => {
+//   router.push({
+//     name: route,
+//   });
+// };
 
-const logoutUser = () => {
-  logout();
-  redirect(AuthRoutes.LOGIN);
-};
+// const logoutUser = () => {
+//   logout();
+//   redirect(AuthRoutes.LOGIN);
+// };
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
@@ -68,13 +68,31 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <q-layout view="lHr LpR lFr">
-    <q-header :reveal="revealActive" elevated>
-      <q-toolbar :class="isDarkMode ? 'dark-page text-white' : 'bg-white text-dark'">
+  <q-layout view="hHh lpR fFf">
+    <q-header :reveal="revealActive" bordered height-hint="75">
+      <q-toolbar :class="isDarkMode ? 'bg-secondary text-white' : 'bg-white text-dark'">
         <q-btn flat dense round icon="sym_r_menu" @click="toggleDrawer" />
+        <template v-if="$q.platform.is.mobile">
+          <q-img src="svg/isologo-color.png" height="26px" fit="contain" no-spinner />
+        </template>
+        <template v-else>
+          <q-img src="images/svg/logo-b.svg" height="26px" width="144px" fit="contain" no-spinner />
+        </template>
         <q-space />
-        <div class="row text-right">
-          <div class="col-12 ellipsis">
+
+        <div class="row justify-end q-gutter-sm">
+          <q-input
+            rounded
+            standout="border-color-primary"
+            dense
+            v-model="search"
+            placeholder="Buscar..."
+            clearable
+            style="width: 350px"
+          />
+          <q-btn flat color="white" icon="sym_r_add" label="Crear publicación" />
+          <q-btn flat color="primary" class="bg-primary" label="Iniciar sesión" />
+          <!-- <div class="col-12 ellipsis">
             <q-btn no-caps flat :label="user.email">
               <q-menu auto-close>
                 <q-list style="min-width: 100px">
@@ -85,7 +103,7 @@ onBeforeUnmount(() => {
               </q-menu>
             </q-btn>
           </div>
-          <div class="col-12 text-caption">{{ user?.Profile?.name }}</div>
+          <div class="col-12 text-caption">{{ user?.Profile?.name }}</div> -->
         </div>
       </q-toolbar>
     </q-header>

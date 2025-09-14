@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { SettingsRouter } from 'src/modules/settings/router';
+import { BlogRouter } from 'src/modules/blog/router';
 
 const StartRouter: RouteRecordRaw[] = [
   {
@@ -8,7 +9,7 @@ const StartRouter: RouteRecordRaw[] = [
     beforeEnter: [],
     component: () => import('../layouts/MainLayout.vue'),
 
-    children: [SettingsRouter],
+    children: [SettingsRouter, BlogRouter],
   },
   {
     path: '/start',

@@ -65,7 +65,7 @@ onMounted(() => {
               </section>
 
               <label class="column">
-                <q-btn label="Ingresar" type="submit" color="primary" class="rounded-borders" />
+                <q-btn label="Ingresar" type="submit" color="primary" />
               </label>
             </q-form>
           </q-card-section>
