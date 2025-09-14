@@ -1,35 +1,17 @@
+// Base
+@import './base/_reset.scss';
+@import './base/_typography.scss';
+@import './base/_utilities.scss';
+@import './base/_dynamic-classes.scss';
+
 @import 'customScroll';
 
 @import './layouts/sideBar';
 
-@font-face {
-  font-family: Poppins;
-  src: url(./fonts/Poppins/Poppins-Regular.ttf);
-  font-weight: normal, 300, 400;
-}
-
-@font-face {
-  font-family: Poppins;
-  src: url(./fonts/Poppins/Poppins-Medium.ttf);
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Poppins;
-  src: url(./fonts/Poppins/Poppins-Bold.ttf);
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Poppins;
-  src: url(./fonts/Poppins/Poppins-Light.ttf);
-  font-weight: 200;
-}
-
 body {
   min-width: 100px;
   min-height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Raleway', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;

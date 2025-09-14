@@ -1,0 +1,41 @@
+.q-badge.badge-brand {
+  border: 1px solid $primary-100;
+  background-color: $primary-50;
+  color: $primary-700;
+}
+
+.q-badge.badge-success {
+  border: 1px solid $success-200;
+  background-color: $success-100;
+  color: $success-700;
+}
+
+.q-badge.badge-warning {
+  border: 1px solid $warning-200;
+  background-color: $warning-100;
+  color: $warning-700;
+}
+
+.q-badge.badge-error {
+  border: 1px solid $error-200;
+  background-color: $error-100;
+  color: $error-700;
+}
+
+.q-badge.badge-grey {
+  border: 1px solid $grey-200;
+  background-color: $grey-100;
+  color: $grey-700;
+}
+
+.q-badge.badge-blue {
+  border: 1px solid $blue-2;
+  background-color: $blue-1;
+  color: $blue-10;
+}
+
+.q-badge.badge-pink {
+  border: 1px solid $pink-2;
+  background-color: $pink-1;
+  color: $pink-10;
+}
