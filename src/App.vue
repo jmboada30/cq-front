@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 import useUi from './modules/start/composables/useUi';
-const { checkDarkMode, isDarkMode } = useUi();
+const { setForceDarkMode } = useUi();
 
-checkDarkMode();
-isDarkMode.value = true;
+setForceDarkMode();
 </script>
 
 <template>

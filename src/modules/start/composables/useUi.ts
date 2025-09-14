@@ -12,6 +12,7 @@ const useUi = () => {
     isMiniState,
     isSubItemOpen,
     currentTitle,
+    setForceDarkMode: store.setForceDarkMode,
     toggleMenu: store.toggleMenu,
     toggleDark: store.toggleDark,
     checkDarkMode: store.checkDarkMode,
