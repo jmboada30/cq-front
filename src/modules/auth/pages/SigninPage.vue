@@ -30,9 +30,10 @@ onMounted(() => {
           <q-card-section>
             <q-form @submit="onSubmit" class="column q-gutter-y-sm">
               <q-input
+                dark
                 v-model="loginForm.email"
-                outlined
-                dense
+                standout
+                color="dark"
                 lazy-rules
                 type="email"
                 label="Correo electrónico"
@@ -41,8 +42,9 @@ onMounted(() => {
 
               <q-input
                 v-model="loginForm.password"
-                outlined
-                dense
+                dark
+                standout
+                color="dark"
                 label="Contraseña"
                 :type="isPwd ? 'password' : 'text'"
                 :rules="[isRequired, isPassword]"
