@@ -1,3 +1,4 @@
+import isAuthenticatedGuard from 'src/modules/auth/router/guards/isAuthenticatedGuard';
 import type { RouteRecordRaw } from 'vue-router';
 
 export enum BlogRoutesEnum {
@@ -7,6 +8,8 @@ export enum BlogRoutesEnum {
 export const BlogRouter: RouteRecordRaw = {
   path: '/',
   name: BlogRoutesEnum.RECENT_ARTICLES,
+  beforeEnter: [isAuthenticatedGuard],
+
   redirect: {
     name: 'home',
   },
