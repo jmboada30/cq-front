@@ -10,29 +10,23 @@ const $q = useQuasar();
 </script>
 <template>
   <div
-    class="logo__container flex items-center justify-start q-pt-lg q-px-md q-mb-lg"
+    class="logo__container flex items-center justify-center q-pt-lg q-px-md q-mb-lg"
     loading="eager"
     no-spinner
   >
     <template v-if="$q.platform.is.mobile">
-      <q-img
-        src=" images/favicon-128x128.png"
-        height="72px"
-        width="93px"
-        fit="contain"
-        no-spinner
-      />
+      <q-img src="images/png/logo-b.png" height="72px" width="120px" fit="contain" no-spinner />
     </template>
 
     <template v-else>
       <template v-if="isMiniState">
-        <q-img src="images/isotipo.png" width="32px" height="32px" no-spinner />
+        <q-img src="images/png/isologo-n.png" width="32px" height="32px" no-spinner />
       </template>
       <template v-else>
         <q-img
-          src=" images/favicon-128x128.png"
+          src="images/png/logo-b.png"
           height="72px"
-          width="93px"
+          width="120px"
           fit="contain"
           no-spinner
           transition-show="jump-down"

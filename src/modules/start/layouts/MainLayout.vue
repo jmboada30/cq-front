@@ -70,7 +70,7 @@ onBeforeUnmount(() => {
 <template>
   <q-layout view="lHr LpR lFr">
     <q-header :reveal="revealActive" elevated>
-      <q-toolbar :class="isDarkMode ? 'bg-dark text-white' : 'bg-white text-dark'">
+      <q-toolbar :class="isDarkMode ? 'dark-page text-white' : 'bg-white text-dark'">
         <q-btn flat dense round icon="sym_r_menu" @click="toggleDrawer" />
         <q-space />
         <div class="row text-right">

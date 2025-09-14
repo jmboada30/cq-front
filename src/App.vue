@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
-// import TableActionButtonHover from './modules/shared/components/TableActionButtonHover.vue';
+import useUi from './modules/start/composables/useUi';
+const { setForceDarkMode } = useUi();
+
+setForceDarkMode();
 </script>
+
 <template>
   <router-view />
-  <!-- <TableActionButtonHover /> -->
   <VueQueryDevtools buttonPosition="top-right" />
 </template>

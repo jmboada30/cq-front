@@ -1,0 +1,30 @@
+.q-table__card {
+  border-radius: $rounded-borders;
+}
+
+// .q-table__top,
+// thead tr:first-child th {
+//   background: $grey-50;
+//   color: $grey-600;
+// }
+
+.q-table__top,
+thead tr:first-child th {
+  background: $primary-50;
+  color: $primary;
+}
+
+.q-table--bordered {
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.q-table thead,
+.q-table tr,
+.q-table th,
+.q-table td {
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+.q-table tbody td:before {
+  background: rgba(0, 0, 100, 0.03);
+}

@@ -6,7 +6,7 @@ export const useUiStore = defineStore('ui', () => {
   // Estado reactivo
   const isMenuOpen = ref(false);
   const isMiniState = ref(true);
-  const isDarkMode = ref(false);
+  const isDarkMode = ref(true);
   const isSubItemOpen = ref(false);
   const currentTitle = ref('');
 
@@ -36,6 +36,13 @@ export const useUiStore = defineStore('ui', () => {
     updateTheme(isDarkMode.value);
   };
 
+  const setForceDarkMode = () => {
+    isDarkMode.value = true;
+    LocalStorage.set('isDarkMode', isDarkMode.value);
+    Dark.set(isDarkMode.value);
+    updateTheme(isDarkMode.value);
+  };
+
   const checkDarkMode = () => {
     isDarkMode.value = LocalStorage.getItem('isDarkMode') || false;
     Dark.set(isDarkMode.value);
@@ -57,5 +64,6 @@ export const useUiStore = defineStore('ui', () => {
     toggleSubItem,
     toggleDark,
     checkDarkMode,
+    setForceDarkMode,
   };
 });
