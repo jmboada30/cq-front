@@ -11,7 +11,7 @@ const $q = useQuasar();
     v-model="drawer"
     show-if-above
     :width="280"
-    :breakpoint="500"
+    :breakpoint="1024"
     :mini-width="72"
     bordered
     :class="[$q.dark.isActive ? 'bg-secondary' : 'bg-white', 'sidebar']"
