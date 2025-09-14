@@ -1,12 +1,13 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { SettingsRouter } from 'src/modules/settings/router';
 import { BlogRouter } from 'src/modules/blog/router';
+import isAuthenticatedGuard from 'src/modules/auth/router/guards/isAuthenticatedGuard';
 
 const StartRouter: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'main',
-    beforeEnter: [],
+    beforeEnter: [isAuthenticatedGuard],
     component: () => import('../layouts/MainLayout.vue'),
 
     children: [SettingsRouter, BlogRouter],
