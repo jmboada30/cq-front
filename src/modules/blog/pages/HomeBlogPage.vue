@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import PreviewArticleCard from '../components/PreviewArticleCard.vue';
+import { usePostsQuery } from '../composable/usePostsQuery';
 
-const articles = [
+const { posts } = usePostsQuery();
+
+/* const articles = [
   {
     id: 1,
     title: 'Entendiendo los Hooks de React',
@@ -24,13 +27,13 @@ const articles = [
     likes: 5,
     comments: 3,
   },
-];
+]; */
 </script>
 
 <template>
   <q-page class="q-pa-lg q-pb-lg row q-col-gutter-md">
     <section class="col-sm-12 col-md-8 col-lg-8 col-xl-9 flex justify-center">
-      <PreviewArticleCard v-for="article in articles" :key="article.id" :article="article" />
+      <PreviewArticleCard v-for="article in posts" :key="article.id" :article="article" />
     </section>
     <section class="col-sm-3 col-md-4 col-lg-4 col-xl-3 gt-sm">
       <!-- sidebar -->
