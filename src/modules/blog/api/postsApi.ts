@@ -11,7 +11,7 @@ export const createPost = async (payload: PostDto): Promise<CreatedPostResponseI
   return res.data;
 };
 
-export const findAllPosts = async (params: PostFilterDto): Promise<PostsResponseI> => {
+export const findAllPosts = async (params?: PostFilterDto): Promise<PostsResponseI> => {
   const res = await api.get<PostsResponseI>(`${postUrl}`, {
     params,
     timeout: 1000 * 5,

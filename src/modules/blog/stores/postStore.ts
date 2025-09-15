@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import type { PostDto } from '../interfaces/postDto';
+import { defineStore } from 'pinia';
+import type { PostDto, PostFilterDto } from '../interfaces/postDto';
 import type { PostI } from '../interfaces/postInterfaces';
 
 const initialStateDto: PostDto = {
@@ -17,6 +17,7 @@ export const usePostStore = defineStore('post', () => {
   const postDto = ref<PostDto>(initialStateDto);
   const post = ref<PostI | undefined>(undefined);
   const posts = ref<PostI[]>([]);
+  const postFilter = ref<PostFilterDto | undefined>(undefined);
 
   const setPost = (newVal: PostI) => {
     post.value = newVal;
@@ -29,17 +30,38 @@ export const usePostStore = defineStore('post', () => {
     posts.value = newVal;
   };
 
+  const setPostFilter = (newVal: PostFilterDto) => {
+    postFilter.value = newVal;
+  };
+
   const resetPostDto = () => {
     postDto.value = structuredClone(initialStateDto);
+  };
+
+  const resetPosts = () => {
+    posts.value = [];
+  };
+
+  const resetPost = () => {
+    post.value = undefined;
+  };
+
+  const resetPostFilter = () => {
+    postFilter.value = undefined;
   };
 
   return {
     postDto,
     post,
     posts,
+    postFilter,
     setPost,
     setPostDto,
     setPosts,
+    setPostFilter,
     resetPostDto,
+    resetPost,
+    resetPosts,
+    resetPostFilter,
   };
 });
