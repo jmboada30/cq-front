@@ -8,7 +8,7 @@ const { menuItemsFormatted } = useMenuItemByUserQuery();
   <q-card flat class="bg-dark rounded-borders q-ma-md q-mt-lg q-pa-md">
     <q-card-section class="text-center">
       <q-img
-        src="images/svg/devi-hello-border.svg"
+        src="images/svg/devi-animated.svg"
         height="100px"
         fit="contain"
         class="q-mb-sm logo-devi"
