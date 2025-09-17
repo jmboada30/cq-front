@@ -1,16 +1,20 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
-import { version } from "../../../../package.json";
-import LogoImage from "../../shared/components/BlueLogoImage.vue";
-import useValidators from "../../shared/composables/useValidators";
-import useAuth from "../composables/useAuth";
-import useUi from "src/modules/start/composables/useUi";
+import { onMounted, ref } from 'vue';
+import { version } from '../../../../package.json';
+import LogoImage from '../../shared/components/BlueLogoImage.vue';
+import useValidators from '../../shared/composables/useValidators';
+import useAuth from '../composables/useAuth';
+import useUi from 'src/modules/start/composables/useUi';
 
 const isPwd = ref(true);
 const { loginForm, login, getLoginFormFromLocalStore } = useAuth();
 const { isRequired, isPassword, isEmail } = useValidators();
 const { isDarkMode } = useUi();
 const onSubmit = () => login();
+
+const redirectDiscord = () => {
+  window.location.href = `http://192.168.123.33:3022/api/auth/discord/callback`;
+};
 
 onMounted(() => {
   const resp = getLoginFormFromLocalStore();
@@ -80,6 +84,7 @@ onMounted(() => {
                   color="white"
                   icon="img:icons/discord-icon.svg"
                   class="bg-white"
+                  @click="redirectDiscord"
                 />
               </section>
             </q-form>
@@ -112,7 +117,7 @@ onMounted(() => {
 
 .divisor::before,
 .divisor::after {
-  content: "";
+  content: '';
   flex: 1;
   border-bottom: 1px solid #a0a0a0;
 }

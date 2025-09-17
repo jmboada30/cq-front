@@ -74,6 +74,7 @@ const useAuth = () => {
     logout,
     getJwtFromLocalStore,
     getLoginFormFromLocalStore,
+    setJwtToLocalStore,
   };
 };
 

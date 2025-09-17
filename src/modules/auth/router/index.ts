@@ -10,6 +10,13 @@ const AuthRouter: RouteRecordRaw = {
       path: 'login',
       name: AuthRoutes.LOGIN,
       component: () => import('../pages/SigninPage.vue'),
+      meta: { isPublic: true },
+    },
+    {
+      path: 'callback',
+      name: AuthRoutes.CALLBACK,
+      component: () => import('src/modules/auth/pages/CallbackPage.vue'),
+      meta: { isPublic: true },
     },
   ],
 };
