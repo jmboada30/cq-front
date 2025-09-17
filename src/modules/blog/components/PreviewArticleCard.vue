@@ -8,11 +8,16 @@ const props = defineProps<Props>();
 import { ref } from 'vue';
 import { computed } from 'vue';
 import type { PostI } from '../interfaces/postInterfaces';
+import { usePostReactionMutation } from '../composable/usePostReactionMutation';
+import { ReactionType } from '../interfaces/postReactionsInterfaces';
 
 const liked = ref(false);
 const localLikes = ref(props.article.likeCount);
+const { PostReactionMutation } = usePostReactionMutation();
 
-const toggleLike = () => {
+const toggleLike = async () => {
+  if (!liked.value)
+    await PostReactionMutation.mutateAsync({ postId: props.article.id, type: ReactionType.LIKE });
   // toggle liked state and update local counter
   liked.value = !liked.value;
   localLikes.value += liked.value ? 1 : -1;
