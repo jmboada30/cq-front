@@ -1,5 +1,5 @@
 import { api } from 'src/boot/axios';
-// TODO: Reemplaza estos tipos con los de tu proyecto
+
 import type {
   FindCommentReactionResponseI,
   CommentReactionI,
