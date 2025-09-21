@@ -9,7 +9,7 @@ export interface CommentI {
   id: number;
   postId: number;
   authorId: number;
-  parentId: null;
+  parentId: number | null;
   content: string;
   status: CommentStatus;
   createdAt: string | null;

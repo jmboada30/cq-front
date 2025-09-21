@@ -1,15 +1,13 @@
 import { useMutation } from '@tanstack/vue-query';
 import { createComments, deleteComment, updateComment } from '../api/commentsApi';
-import { useManageBlogStore } from './useManageBlogStore';
+import type { CommentsDto } from '../interfaces/commentsDto';
 export const useCommentMutation = () => {
-  const { commentDto } = useManageBlogStore();
-
   const createCommentsMutation = useMutation({
-    mutationFn: () => createComments(commentDto.value),
+    mutationFn: (commentDto: CommentsDto) => createComments(commentDto),
   });
 
   const updateCommentMutation = useMutation({
-    mutationFn: () => updateComment(commentDto.value),
+    mutationFn: (commentDto: CommentsDto) => updateComment(commentDto),
   });
 
   const deleteCommentMutation = useMutation({

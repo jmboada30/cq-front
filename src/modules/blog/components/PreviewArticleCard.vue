@@ -10,14 +10,19 @@ import { computed } from 'vue';
 import type { PostI } from '../interfaces/postInterfaces';
 import { usePostReactionMutation } from '../composable/usePostReactionMutation';
 import { ReactionType } from '../interfaces/postReactionsInterfaces';
+import CommentSection from './CommentSection.vue';
 
 const liked = ref(false);
+const showComments = ref(false);
 const localLikes = ref(props.article.likeCount);
-const { PostReactionMutation } = usePostReactionMutation();
+const { createPostReactionMutation } = usePostReactionMutation();
 
 const toggleLike = async () => {
   if (!liked.value)
-    await PostReactionMutation.mutateAsync({ postId: props.article.id, type: ReactionType.LIKE });
+    await createPostReactionMutation.mutateAsync({
+      postId: props.article.id,
+      type: ReactionType.LIKE,
+    });
   // toggle liked state and update local counter
   liked.value = !liked.value;
   localLikes.value += liked.value ? 1 : -1;
@@ -74,7 +79,9 @@ const iconStyle = computed(() => {
         :label="props.article.commentCount"
         color="primary"
         class="text-weight-bold"
+        @click="() => (showComments = !showComments)"
       />
+      <CommentSection v-if="showComments" :post-id="props.article.id" />
       <q-btn flat icon="sym_r_share" label="Compartir" color="primary" no-caps />
     </div>
   </article>
