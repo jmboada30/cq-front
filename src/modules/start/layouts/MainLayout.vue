@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ref, onBeforeUnmount, nextTick } from "vue";
-import { useRouter } from "vue-router";
-import { Loading } from "quasar";
-import useUi from "../composables/useUi";
+import { ref, onBeforeUnmount, nextTick } from 'vue';
+import { useRouter } from 'vue-router';
+import { Loading } from 'quasar';
+import useUi from '../composables/useUi';
 // import useAuth from 'src/modules/auth/composables/useAuth';
-import MenuLg from "src/modules/settings/menuItems/components/MenuLg.vue";
+import MenuLg from 'src/modules/settings/menuItems/components/MenuLg.vue';
 // import { AuthRoutes } from 'src/modules/auth/interfaces/auth-routes';
-import { useMenuUi } from "src/modules/settings/menuItems/composables/usMenuUi";
+import { useMenuUi } from 'src/modules/settings/menuItems/composables/usMenuUi';
+import { BlogRoutesEnum } from 'src/modules/blog/interfaces/blog-routes';
 
 const { isDarkMode } = useUi();
 const { toggleDrawer } = useMenuUi();
@@ -14,7 +15,7 @@ const router = useRouter();
 // const { user, logout } = useAuth();
 const search = ref(null);
 
-Loading.hide("auth-login");
+Loading.hide('auth-login');
 const isVisible = ref(false);
 const scrollThreshold = 1500;
 
@@ -37,7 +38,7 @@ const handleScroll = () => {
 };
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 // const redirect = (route: string) => {
@@ -52,7 +53,7 @@ const scrollToTop = () => {
 // };
 
 onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener('scroll', handleScroll);
 });
 const revealActive = ref(true);
 const hookCleanup = router.beforeEach(() => {
@@ -76,13 +77,7 @@ onBeforeUnmount(() => {
           <q-img src="svg/isologo-color.png" height="26px" fit="contain" no-spinner />
         </template>
         <template v-else>
-          <q-img
-            src="images/svg/logo-b.svg"
-            height="26px"
-            width="144px"
-            fit="contain"
-            no-spinner
-          />
+          <q-img src="images/svg/logo-b.svg" height="26px" width="144px" fit="contain" no-spinner />
         </template>
         <q-space />
 
@@ -96,7 +91,13 @@ onBeforeUnmount(() => {
             clearable
             style="width: 350px"
           />
-          <q-btn flat color="white" icon="sym_r_add" label="Crear publicación" />
+          <q-btn
+            flat
+            color="white"
+            icon="sym_r_add"
+            label="Crear publicación"
+            :to="{ name: BlogRoutesEnum.MY_POSTS_NEW }"
+          />
           <q-btn round>
             <q-avatar size="48px">
               <img src="https://cdn.quasar.dev/img/avatar.png" />

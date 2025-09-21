@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const openPostDetail = () => {
+  router.push({ name: 'post-detail', params: { id: props.article.id } });
+};
+
 interface Props {
   article: PostI;
 }
@@ -18,16 +26,12 @@ const { PostReactionMutation } = usePostReactionMutation();
 const toggleLike = async () => {
   if (!liked.value)
     await PostReactionMutation.mutateAsync({ postId: props.article.id, type: ReactionType.LIKE });
-  // toggle liked state and update local counter
   liked.value = !liked.value;
   localLikes.value += liked.value ? 1 : -1;
 
-  // force a reflow/restart for the burst animation: remove and re-add the class quickly
-  // so the burst spans will replay even if liked toggles quickly
   const el = document.querySelector('.like-wrap') as HTMLElement | null;
   if (el) {
     el.classList.remove('liked--anim');
-    // read offsetWidth to force reflow
     void el.offsetWidth;
     if (liked.value) el.classList.add('liked--anim');
   }
@@ -51,7 +55,7 @@ const iconStyle = computed(() => {
       <time :datetime="props.article.createdAt">Hace 3 horas</time>
     </div>
 
-    <h2 class="cursor-pointer">{{ props.article.title }}</h2>
+    <h2 class="cursor-pointer" @click="openPostDetail">{{ props.article.title }}</h2>
     <p>
       {{ props.article.contentMd }}
     </p>
