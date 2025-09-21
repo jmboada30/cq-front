@@ -18,6 +18,12 @@ const AuthRouter: RouteRecordRaw = {
       component: () => import('src/modules/auth/pages/CallbackPage.vue'),
       meta: { isPublic: true },
     },
+    {
+      path: 'register',
+      name: AuthRoutes.REGISTER,
+      component: () => import('src/modules/auth/pages/RegisterPage.vue'),
+      meta: { isPublic: true },
+    },
   ],
 };
 

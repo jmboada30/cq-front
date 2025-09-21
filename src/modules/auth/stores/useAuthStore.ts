@@ -5,6 +5,7 @@ import { LocalStorage } from 'quasar';
 import useHandlerErrors from '../../shared/composables/useHandlerErrors';
 import type { AuthUser, LoginForm, UserRole } from '../interfaces/auth';
 import { validateJwt } from '../api/authApi';
+import type { RegisterForm } from '../interfaces/registerInterfaces';
 
 const initialState = {
   loginForm: {
@@ -22,13 +23,22 @@ const initialState = {
   permission: '',
 };
 
+const initialStateRegister: RegisterForm = {
+  email: '',
+  name: '',
+  password: '',
+};
+
 export const useAuthStore = defineStore('auth', () => {
   const { handleApiResponseError } = useHandlerErrors();
   const loginForm = ref<LoginForm>({ ...initialState.loginForm });
+  const registerForm = ref<RegisterForm>(structuredClone(initialStateRegister));
 
   const user = ref<AuthUser>({ ...initialState.user });
 
   const permission = ref<string>(initialState.permission);
+
+  const clearRegisterForm = () => (registerForm.value = structuredClone(initialStateRegister));
 
   const clearLoginForm = () => {
     loginForm.value = { ...initialState.loginForm };
@@ -57,6 +67,7 @@ export const useAuthStore = defineStore('auth', () => {
   return {
     // state
     loginForm,
+    registerForm,
     user,
     permission,
 
@@ -65,6 +76,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     // actions
     clearLoginForm,
+    clearRegisterForm,
     clearUser,
     clearPermissions,
     checkUserJwt,

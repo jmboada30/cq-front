@@ -1,5 +1,6 @@
 import { api } from 'src/boot/axios';
 import type { AuthUser, LoginForm } from '../interfaces/auth';
+import type { RegisterForm } from '../interfaces/registerInterfaces';
 
 export const signIn = async (loginForm: LoginForm) => {
   const { email, password } = loginForm;
@@ -22,5 +23,22 @@ export const validateJwt = async () => {
     timeout: 1000 * 5,
     timeoutErrorMessage: 'Tiempo de espera agotado para validar el token',
   });
+  return resp.data;
+};
+
+export const register = async (body: RegisterForm) => {
+  const { email, password, name } = body;
+  const resp = await api.post<{ jwt: string }>(
+    'auth/register',
+    {
+      email,
+      password,
+      name,
+    },
+    {
+      timeout: 1000 * 5,
+      timeoutErrorMessage: 'Tiempo de espera agotado para el registro',
+    },
+  );
   return resp.data;
 };
